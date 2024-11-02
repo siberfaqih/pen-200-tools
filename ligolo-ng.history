@@ -1,0 +1,85 @@
+ifcreate --name ligolo
+exit
+ifcreate --name ligolo
+session
+autoroute
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+start
+tunnel_list
+tunnel_stop --agent 1
+tunnel_start --agent 1
+tunnel_start --name ligolo
+help start
+tunnel_start --tun ligolo
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+session
+ifcreate --name ligolog
+autoroute
+iflist
+autoroute
+ifdel --name ligolog
+ifcreate --name ligolo
+exit
+ifcreate --name ligolo
+iflist
+exit
+session
+autroute
+autoroute
+session
+ifcreate --name ligolo
+autoroute
+start
+stop
+start
+stop
+ifdel
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+tunnel_list
+stop --tun 2
+help stop
+stop --agent 3
+stop --agnet 2
+stop --agent 2
+exit
+session
+iflist
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+ifcreate --name ligolo
+session
+autoroute
+exit
+session
+ifcreate --name ligolo
+autoroute
+session
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+session
+autoroute
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
