@@ -83,3 +83,7 @@ ifdel --name ligolo
 ifcreate --name ligolo
 session
 autoroute
+ifcreate --name ligolo
+autoroute
+session
+autoroute
