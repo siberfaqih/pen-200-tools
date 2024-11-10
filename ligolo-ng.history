@@ -95,3 +95,15 @@ ifconfig
 session
 ifconfig
 exit
+ifcreate --name ligolo
+session
+autoroute
+ifcreate --name ligolo
+session
+autoroute
+session
+ifcreate --name ligolo
+autoroute
+ipconfig
+ip a
+ifconfig
