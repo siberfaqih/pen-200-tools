@@ -107,3 +107,127 @@ autoroute
 ipconfig
 ip a
 ifconfig
+session
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+tun
+help
+tunnel_list
+stop
+tunnel_list
+exit
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+exit
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_list
+help
+listener_stop --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_stop 
+listener_list
+listener_stop --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+listener_start --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+listener_list
+ifconfig
+listener_add --addr 0.0.0.0:* --to 127.0.0.1:* --tcp
+listener_add --addr 0.0.0.0:9000 --to 127.0.0.1:9000 --tcp
+listener_lsit
+listener_list
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+listener_list
+listener_start
+help
+listener_stop
+listener_list
+listener_add --addr 0.0.0.0:9000 --to 127.0.0.1:9000 --tcp
+listener_list
+exit
+session
+ifcreate --ligolo
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+listener_add --addr 0.0.0.0:9000 --to 127.0.0.1:9000 --tcp
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+ifcreate --name ligolo
+autoroute
+session
+autoroute
+ping
+exit
+session
+ifcreate --name ligolo
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+clear
+ifdel --name ligolo
+ifcreate --name ligolo
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+exit
+session
+autoroute
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+exit
+ifdel --name ligolo
+clear
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+listener_add --addr 0.0.0.0:443 --to 127.0.0.1:443 --tcp
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+listener_list
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+ipconfig
+ifconfig
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_add --addr 0.0.0.0:443 --to 127.0.0.1:443 --tcp
+listener_add --addr 0.0.0.0:445 --to 127.0.0.1:445 --tcp
+listener_add --addr 0.0.0.0:7777 --to 127.0.0.1:7777 --tcp
+ifdel --name ligolo
+clear
+exit
+ifdel --name ligolo
