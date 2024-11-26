@@ -231,3 +231,8 @@ ifdel --name ligolo
 clear
 exit
 ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+ifdel --name ligolo
+clear
