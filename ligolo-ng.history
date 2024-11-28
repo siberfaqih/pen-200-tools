@@ -236,3 +236,30 @@ session
 autoroute
 ifdel --name ligolo
 clear
+session
+ifcreate --name ligolo
+autoroute
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+ipconfig
+ifconfig
+listener_add --addr 0.0.0.0:8000 --to 127.0.0.1:8000 --tcp
+listener_list
+ipconfig
+ifconfig
+listener_add --addr 0.0.0.0:443 --to 127.0.0.1:443 --tcp
+iflist
+ifdel --name ligolo
+session
+ifcreate --name ligolo
+autoroute
+listener_list
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_list
+ifdel --name ligolo
+ifcreate --name ligolo
+session
+autoroute
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+listener_list
+listener_add --addr 0.0.0.0:7777 --to 127.0.0.1:7777 --tcp
+listener_add --addr 0.0.0.0:445 --to 127.0.0.1:445 --tcp
