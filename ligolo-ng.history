@@ -263,3 +263,33 @@ listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
 listener_list
 listener_add --addr 0.0.0.0:7777 --to 127.0.0.1:7777 --tcp
 listener_add --addr 0.0.0.0:445 --to 127.0.0.1:445 --tcp
+session
+ifcreate --name ligolo
+autoroute
+ifdel --name ligolo
+session
+autoroute
+ifcreate --name ligolo
+autoroute
+listener_add --addr 0.0.0.0:445 --to 127.0.0.1:445 --tcp
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+ifconfig
+listener_add --addr 0.0.0.0:445 --to 127.0.0.1:445 --tcp
+listener_add --addr 0.0.0.0:7777 --to 127.0.0.1:7777 --tcp
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
+ifcreate --name ligolo
+autoroute
+session
+autoroute
+ifconfig
+help
+tunnel_list
+session
+ifdel --name ligolo
+ifcreate --name ligolo
+autoroute
+clear

